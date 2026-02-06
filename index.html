@@ -68,22 +68,22 @@
   // SCREEN 1 — Romantic message
   function screenOne() {
     app.innerHTML = `
-      <h1>Hey you ❤️</h1>
+      <h1>Hey you🤍😘</h1>
       <p>
         I don’t always say this out loud, but you genuinely make my days
         brighter. Your smile, your kindness, the way you exist — it all
         means more to me than you probably realize.
         <br><br>
-        I feel lucky, calm, and happy just knowing you’re mine.
+        I feel lucky, calm, and happy just knowing you’re mine. I love you very much mero maya🤍❤️
       </p>
-      <button onclick="screenTwo()">I want to ask you something…</button>
+      <button onclick="screenTwo()">Mero maya lai euta kura sodhna man thyo…</button>
     `;
   }
 
   // SCREEN 2 — Soft gate
   function screenTwo() {
     app.innerHTML = `
-      <h1>Can I ask you something? 💭</h1>
+      <h1>Sodham?</h1>
       <button onclick="screenThree()">Yes</button>
       <button class="secondary" onclick="wrongAnswer()">No</button>
       <div class="message" id="msg"></div>
@@ -92,7 +92,7 @@
 
   function wrongAnswer() {
     document.getElementById("msg").innerText =
-      "Wrong answer. Click yes.";
+      "Wrong answer. Mero dil nadukhau naa. Chocolate kindinchu. Please click yes😘";
     app.querySelector(".secondary").remove();
   }
 
@@ -114,7 +114,7 @@
   function yesFinal() {
     app.innerHTML = `
       <h1>Yayyyy!!! ❤️🥰</h1>
-      <p>You just made me the happiest person alive 💕</p>
+      <p>You just made me the happiest person alive🤍❤️ I love you very muchhh😘😘</p>
     `;
   }
 
