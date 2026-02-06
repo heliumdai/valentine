@@ -107,14 +107,23 @@
   }
 
   function noFinal() {
-    document.getElementById("finalMsg").innerHTML =
-      "K reee?????I refuse your refusal mero guiye. 😌<br>Too bad you are already my Valentine.<br>Now deal with it 😘";
+    app.innerHTML = `
+      <h1>K reee????? 😌</h1>
+      <p>
+        I refuse your refusal guiye 😌<br>
+        Too bad you are already my Valentine.<br>
+        Now deal with it 😘
+      </p>
+      <p class="message">Do you want to answer again?</p>
+      <button onclick="screenThree()">Yes</button>
+      <button onclick="screenThree()">Not No</button>
+    `;
   }
 
   function yesFinal() {
     app.innerHTML = `
       <h1>Yayyyy!!! ❤️🥰</h1>
-      <p>You just made me the happiest person alive🤍❤️ I love you very muchhh😘😘</p>
+      <p>You just made me the happiest person alive🤍❤️ I love you very muchh😘😘</p>
     `;
   }
 
