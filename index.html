@@ -2,86 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Be My Valentine ❤️</title>
+  <title>For You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: linear-gradient(135deg, #ffb6c1, #ffe6ea);
       font-family: "Segoe UI", Arial, sans-serif;
       text-align: center;
+      padding: 20px;
     }
+
+    .card {
+      max-width: 500px;
+      background: rgba(255,255,255,0.85);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
     h1 {
-      font-size: 2.5rem;
       color: #b30059;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
-    .buttons {
-      position: relative;
-      width: 300px;
-      height: 200px;
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 25px;
     }
+
     button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
+      padding: 14px 28px;
+      font-size: 1.1rem;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      position: absolute;
-      transition: 0.2s;
-    }
-    #yes {
-      background-color: #ff4d88;
+      background: #ff4d88;
       color: white;
-      left: 50%;
-      transform: translateX(-50%);
+      margin: 10px;
     }
-    #no {
-      background-color: #999;
-      color: white;
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
+
+    .secondary {
+      background: #999;
+    }
+
+    .message {
+      color: #b30059;
+      margin-top: 15px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-<h1>Will you be my Valentine? 💖</h1>
-
-<div class="buttons">
-  <button id="yes">Yes 💕</button>
-  <button id="no">No 🙄</button>
-</div>
+<div class="card" id="app"></div>
 
 <script>
-  const noBtn = document.getElementById("no");
-  const yesBtn = document.getElementById("yes");
+  const app = document.getElementById("app");
 
-  function moveNoButton() {
-    const x = Math.random() * 220;
-    const y = Math.random() * 160;
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+  // SCREEN 1 — Romantic message
+  function screenOne() {
+    app.innerHTML = `
+      <h1>Hey you ❤️</h1>
+      <p>
+        I don’t always say this out loud, but you genuinely make my days
+        brighter. Your smile, your kindness, the way you exist — it all
+        means more to me than you probably realize.
+        <br><br>
+        I feel lucky, calm, and happy just knowing you’re mine.
+      </p>
+      <button onclick="screenTwo()">I want to ask you something…</button>
+    `;
   }
 
-  noBtn.addEventListener("mouseover", moveNoButton);
-  noBtn.addEventListener("touchstart", moveNoButton);
+  // SCREEN 2 — Soft gate
+  function screenTwo() {
+    app.innerHTML = `
+      <h1>Can I ask you something? 💭</h1>
+      <button onclick="screenThree()">Yes</button>
+      <button class="secondary" onclick="wrongAnswer()">No</button>
+      <div class="message" id="msg"></div>
+    `;
+  }
 
-  noBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    moveNoButton();
-  });
+  function wrongAnswer() {
+    document.getElementById("msg").innerText =
+      "Wrong answer. Click yes.";
+    app.querySelector(".secondary").remove();
+  }
 
-  yesBtn.addEventListener("click", () => {
-    document.body.innerHTML =
-      "<h1>Yayyy!!! ❤️🥰<br>You just made my day 💕</h1>";
-  });
+  // SCREEN 3 — Valentine question
+  function screenThree() {
+    app.innerHTML = `
+      <h1>Will you be my Valentine? 💖</h1>
+      <button onclick="yesFinal()">Yes 💕</button>
+      <button class="secondary" onclick="noFinal()">No 🙄</button>
+      <div class="message" id="finalMsg"></div>
+    `;
+  }
+
+  function noFinal() {
+    document.getElementById("finalMsg").innerHTML =
+      "I refuse your refusal. 😌<br>Too bad you are already my Valentine.<br>Now deal with it 😘";
+  }
+
+  function yesFinal() {
+    app.innerHTML = `
+      <h1>Yayyyy!!! ❤️🥰</h1>
+      <p>You just made me the happiest person alive 💕</p>
+    `;
+  }
+
+  // Start
+  screenOne();
 </script>
 
 </body>
