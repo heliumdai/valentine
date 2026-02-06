@@ -76,14 +76,14 @@
         <br><br>
         I feel lucky, calm, and happy just knowing you’re mine. I love you very much mero maya🤍❤️
       </p>
-      <button onclick="screenTwo()">Mero maya lai euta kura sodhna man thyo…</button>
+      <button onclick="screenTwo()">Euta kura sodhchu la maya</button>
     `;
   }
 
   // SCREEN 2 — Soft gate
   function screenTwo() {
     app.innerHTML = `
-      <h1>Sodham?</h1>
+      <h1>Mero dil nadukhau naa. Chocolate kindinchu. Please click yes😘</h1>
       <button onclick="screenThree()">Yes</button>
       <button class="secondary" onclick="wrongAnswer()">No</button>
       <div class="message" id="msg"></div>
@@ -92,7 +92,7 @@
 
   function wrongAnswer() {
     document.getElementById("msg").innerText =
-      "Wrong answer. Mero dil nadukhau naa. Chocolate kindinchu. Please click yes😘";
+      "Wrong answer.";
     app.querySelector(".secondary").remove();
   }
 
