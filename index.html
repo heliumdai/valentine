@@ -81,21 +81,18 @@
   }
 
   // SCREEN 2 — Soft gate
-  function screenTwo() {
+    function screenTwo() {
     app.innerHTML = `
-      <h1>Mero dil nadukhau naa. Chocolate kindinchu. Please click yes😘</h1>
+      <h1 id="question">Sodham?</h1>
       <button onclick="screenThree()">Yes</button>
       <button class="secondary" onclick="wrongAnswer()">No</button>
-      <div class="message" id="msg"></div>
     `;
   }
-
-  function wrongAnswer() {
-    document.getElementById("msg").innerText =
-      "Wrong answer.";
+   function wrongAnswer() {
+    document.getElementById("question").innerText =
+      "Wrong answer. Mero dil nadukhau naa. Chocolate kindinchu. Please click yes😘";
     app.querySelector(".secondary").remove();
   }
-
   // SCREEN 3 — Valentine question
   function screenThree() {
     app.innerHTML = `
